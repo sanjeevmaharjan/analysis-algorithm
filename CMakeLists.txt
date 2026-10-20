@@ -34,6 +34,11 @@ add_executable(valid_palindrome_test
     tests/valid_palindrome_test.cpp
 )
 
+add_executable(reverse_linked_list_test
+    tests/reverse_linked_list_test.cpp
+)
+
+
 target_include_directories(binary_search_test PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
@@ -62,6 +67,10 @@ target_include_directories(valid_palindrome_test PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
+target_include_directories(reverse_linked_list_test PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+
 enable_testing()
 add_test(NAME binary_search_test COMMAND binary_search_test)
 add_test(NAME two_sum_test COMMAND two_sum_test)
@@ -70,3 +79,4 @@ add_test(NAME search_a_2d_matrix_test COMMAND search_a_2d_matrix_test)
 add_test(NAME valid_anagram_test COMMAND valid_anagram_test)
 add_test(NAME merge_two_sorted_lists_test COMMAND merge_two_sorted_lists_test)
 add_test(NAME valid_palindrome_test COMMAND valid_palindrome_test)
+add_test(NAME reverse_linked_list_test COMMAND reverse_linked_list_test)
