@@ -18,6 +18,10 @@ add_executable(contains_duplicate_test
     tests/contains_duplicate_test.cpp
 )
 
+add_executable(search_a_2d_matrix_test
+    tests/search_a_2d_matrix_test.cpp
+)
+
 target_include_directories(binary_search_test PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
@@ -30,7 +34,12 @@ target_include_directories(contains_duplicate_test PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
+target_include_directories(search_a_2d_matrix_test PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+
 enable_testing()
 add_test(NAME binary_search_test COMMAND binary_search_test)
 add_test(NAME two_sum_test COMMAND two_sum_test)
 add_test(NAME contains_duplicate_test COMMAND contains_duplicate_test)
+add_test(NAME search_a_2d_matrix_test COMMAND search_a_2d_matrix_test)

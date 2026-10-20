@@ -1,4 +1,3 @@
-
 /**
  * @file contains_duplicate.cpp
  * @author Sanjeev Maharjan
