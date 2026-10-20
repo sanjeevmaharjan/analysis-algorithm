@@ -10,9 +10,18 @@ add_executable(binary_search_test
     tests/binary_search_test.cpp
 )
 
+add_executable(two_sum_test
+    tests/two_sum_test.cpp
+)
+
 target_include_directories(binary_search_test PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+
+target_include_directories(two_sum_test PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
 enable_testing()
 add_test(NAME binary_search_test COMMAND binary_search_test)
+add_test(NAME two_sum_test COMMAND two_sum_test)

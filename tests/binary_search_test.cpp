@@ -1,3 +1,11 @@
+/**
+ * @file binary_search_test.cpp
+ * @author Sanjeev Maharjan
+ * @brief Test suite for Leetcode 704: Binary search.
+ *
+ * Verifies correct results for standard, edge, and empty-array cases.
+ */
+
 #include <cassert>
 #include <vector>
 
