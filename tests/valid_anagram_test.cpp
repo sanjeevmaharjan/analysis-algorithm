@@ -6,20 +6,20 @@
  * Verifies anagram detection using a fixed-size frequency table.
  */
 
-#include <cassert>
+#include <gtest/gtest.h>
 #include <string>
 
 #include "../src/valid_anagram.cpp"
 
-int main() {
+TEST(ValidAnagramTest, comparesCharacterFrequencies) {
     Solution solution;
 
-    assert(solution.isAnagram("anagram", "nagaram"));
-    assert(!solution.isAnagram("rat", "car"));
-    assert(!solution.isAnagram("hello", "ell"));
-    assert(solution.isAnagram("a", "a"));
-    assert(!solution.isAnagram("ab", "aa"));
-    assert(solution.isAnagram("abcc", "ccba"));
-    assert(!solution.isAnagram("", "a"));
-    assert(solution.isAnagram("", ""));
+    EXPECT_TRUE(solution.isAnagram("anagram", "nagaram"));
+    EXPECT_FALSE(solution.isAnagram("rat", "car"));
+    EXPECT_FALSE(solution.isAnagram("hello", "ell"));
+    EXPECT_TRUE(solution.isAnagram("a", "a"));
+    EXPECT_FALSE(solution.isAnagram("ab", "aa"));
+    EXPECT_TRUE(solution.isAnagram("abcc", "ccba"));
+    EXPECT_FALSE(solution.isAnagram("", "a"));
+    EXPECT_TRUE(solution.isAnagram("", ""));
 }
