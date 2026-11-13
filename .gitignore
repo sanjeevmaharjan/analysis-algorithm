@@ -1,13 +1,5 @@
 # Build directories
 build/
-cmake-build-*/
-
-# CMake generated files
-CMakeFiles/
-CMakeCache.txt
-cmake_install.cmake
-Makefile
-CTestTestfile.cmake
 
 # Compiled binaries and libraries
 *.exe

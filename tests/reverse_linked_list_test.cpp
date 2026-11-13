@@ -6,7 +6,7 @@
  * Verifies list reversal for standard, single-node, and empty lists.
  */
 
-#include <cassert>
+#include <gtest/gtest.h>
 #include <initializer_list>
 #include <vector>
 
@@ -50,25 +50,25 @@ void deleteList(ListNode* head) {
 }
 }  // namespace
 
-int main() {
+TEST(ReverseLinkedListTest, reversesListsOfDifferentSizes) {
     Solution solution;
 
     ListNode* list1 = buildList({1, 2, 3, 4, 5});
     ListNode* reversed1 = solution.reverseList(list1);
-    assert(toVector(reversed1) == std::vector<int>({5, 4, 3, 2, 1}));
+    EXPECT_EQ(toVector(reversed1), (std::vector<int>{5, 4, 3, 2, 1}));
     deleteList(reversed1);
 
     ListNode* list2 = buildList({1});
     ListNode* reversed2 = solution.reverseList(list2);
-    assert(toVector(reversed2) == std::vector<int>({1}));
+    EXPECT_EQ(toVector(reversed2), (std::vector<int>{1}));
     deleteList(reversed2);
 
     ListNode* list3 = nullptr;
     ListNode* reversed3 = solution.reverseList(list3);
-    assert(reversed3 == nullptr);
+    EXPECT_EQ(reversed3, nullptr);
 
     ListNode* list4 = buildList({1, 2});
     ListNode* reversed4 = solution.reverseList(list4);
-    assert(toVector(reversed4) == std::vector<int>({2, 1}));
+    EXPECT_EQ(toVector(reversed4), (std::vector<int>{2, 1}));
     deleteList(reversed4);
 }

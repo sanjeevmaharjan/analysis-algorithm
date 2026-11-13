@@ -6,7 +6,7 @@
  * Verifies cycle detection for cyclic and acyclic list structures.
  */
 
-#include <cassert>
+#include <gtest/gtest.h>
 #include <initializer_list>
 
 #include "../src/data_structure/linked_list.h"
@@ -115,25 +115,25 @@ void deleteList(ListNode* head, bool hasCycle = false) {
 }
 }  // namespace
 
-int main() {
+TEST(LinkedListCycleTest, detectsCyclesAndAcyclicLists) {
     Solution solution;
 
     ListNode* cycle1 = makeCycle({3, 2, 0, -4}, 1);
-    assert(solution.hasCycle(cycle1));
+    EXPECT_TRUE(solution.hasCycle(cycle1));
     deleteList(cycle1, true);
 
     ListNode* acyclic1 = makeList({1, 2, 3, 4});
-    assert(!solution.hasCycle(acyclic1));
+    EXPECT_FALSE(solution.hasCycle(acyclic1));
     deleteList(acyclic1);
 
     ListNode* cycle2 = makeCycle({1}, 0);
-    assert(solution.hasCycle(cycle2));
+    EXPECT_TRUE(solution.hasCycle(cycle2));
     deleteList(cycle2, true);
 
     ListNode* acyclic2 = nullptr;
-    assert(!solution.hasCycle(acyclic2));
+    EXPECT_FALSE(solution.hasCycle(acyclic2));
 
     ListNode* cycle3 = makeCycle({1, 2, 3}, 0);
-    assert(solution.hasCycle(cycle3));
+    EXPECT_TRUE(solution.hasCycle(cycle3));
     deleteList(cycle3, true);
 }

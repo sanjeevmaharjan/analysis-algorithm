@@ -5,19 +5,24 @@ This repository contains small algorithm implementations and tests for analysis 
 ## Project structure
 
 - `src/` contains the algorithm implementation
-- `tests/` contains the test executable
-- `CMakeLists.txt` configures the build
+- `tests/` contains the GoogleTest test suites
+- `Makefile` builds and runs the tests
 
 ## Build
 
 ```bash
-cmake -S . -B build
-cmake --build build
+make
 ```
 
 ## Run tests
 
 ```bash
-ctest --test-dir build --output-on-failure
+make test
+```
+
+## Clean build artifacts
+
+```bash
+make clean
 ```
 

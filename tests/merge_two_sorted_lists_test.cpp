@@ -6,7 +6,7 @@
  * Verifies correct merging for sorted linked lists with and without null inputs.
  */
 
-#include <cassert>
+#include <gtest/gtest.h>
 #include <initializer_list>
 #include <vector>
 
@@ -50,7 +50,7 @@ void deleteList(ListNode* head) {
 }
 }  // namespace
 
-int main() {
+TEST(MergeTwoSortedListsTest, mergesListsAndHandlesNullInputs) {
     Solution solution;
 
     ListNode* list1 = buildList({1, 2, 4});
@@ -58,18 +58,18 @@ int main() {
     ListNode* merged = solution.mergeTwoLists(list1, list2);
 
     std::vector<int> expected1{1, 1, 2, 3, 4, 4};
-    assert(toVector(merged) == expected1);
+    EXPECT_EQ(toVector(merged), expected1);
     deleteList(merged);
 
     ListNode* emptyList1 = nullptr;
     ListNode* list3 = buildList({0});
     ListNode* merged2 = solution.mergeTwoLists(emptyList1, list3);
-    assert(toVector(merged2) == std::vector<int>{0});
+    EXPECT_EQ(toVector(merged2), (std::vector<int>{0}));
     deleteList(merged2);
 
     ListNode* list4 = buildList({});
     ListNode* list5 = buildList({});
     ListNode* merged3 = solution.mergeTwoLists(list4, list5);
-    assert(toVector(merged3).empty());
+    EXPECT_TRUE(toVector(merged3).empty());
     deleteList(merged3);
 }
